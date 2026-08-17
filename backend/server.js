@@ -30,14 +30,13 @@ console.log("TAVILY SEARCH FINISHED");
 console.log("Sources found:", searchResponse.results?.length || 0);
 
 const sources = searchResponse.results || [];
-       const ollamaResponse = await fetch("http://localhost:11434/api/generate", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        model: "llama3.2:3b",
-   prompt: `Analyze the claim for misinformation using the web evidence provided.
+       const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY
+});
+
+const aiResponse = await openai.responses.create({
+    model: "gpt-5.6",
+    input: `Analyze the claim for misinformation using the web evidence provided.
 
 IMPORTANT:
 - Decide whether the CLAIM itself is supported or contradicted by the evidence.
@@ -65,13 +64,10 @@ Content: ${source.content}
 URL: ${source.url}`).join("\n\n")}
 
 Claim:
-${content}`,
-        stream: false
-    })
+${content}`
 });
 
-const response = await ollamaResponse.json();
-
+const aiText = aiResponse.output_text.trim();
         const aiText = response.response.trim();
 
 const verdictMatch = aiText.match(/Verdict:\s*(.*?)(?=\s*Confidence:|$)/i);
