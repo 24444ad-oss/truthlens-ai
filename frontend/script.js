@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ANALYZE BUTTON
     analyzeButton.addEventListener("click", function () {
         const content = contentInput.value.trim();
-        fetch("http://localhost:5000/analyze", {
+        fetch("https://truthlens-backend-9o90.onrender.com/analyze"{
     method: "POST",
     headers: {
         "Content-Type": "application/json"
