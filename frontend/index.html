@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TruthLens AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            🔍 TruthLens AI
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+
+    <h1>See Beyond the Headline</h1>
+
+    <p>
+        Detect misinformation and verify digital content with the power of AI.
+    </p>
+<button id="startButton">Start Analyzing</button>
+
+</section>
+<section class="analyzer">
+
+    <h2>Check Your Content</h2>
+
+    <p>Paste a news article or text below to analyze it.</p>
+
+    <textarea id="contentInput" placeholder="Paste your content here..."></textarea>
+
+<button id="exampleButton">Try an Example</button>
+
+<button id="analyzeButton">Analyze Content</button>
+
+<button id="startButton">Start Analyzing</button>
+</section>
+<section class="result">
+
+    <h2>Analysis Result</h2>
+
+    <div class="result-card">
+
+        <h3 id="resultTitle">Waiting for Analysis</h3>
+
+        <p id="resultMessage">
+            Your misinformation detection result will appear here.
+        </p>
+
+        <div class="result-details">
+
+            <p><strong>Status:</strong> <span id="status">Pending</span></p>
+
+            <p><strong>Confidence:</strong> <span id="confidence">--</span></p>
+
+            <p><strong>Explanation:</strong></p>
+
+            <p id="explanation">
+                Analysis details will appear here.
+            </p>
+            <h3>🔎 Sources Checked</h3>
+
+<div id="sources"></div>
+
+        </div>
+
+    </div>
+
+</section>
+<script src="script.js"></script>
+</body>
